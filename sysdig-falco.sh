@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#by mikejdelro (2019)
 
 #---------#
 #Functions
@@ -39,6 +39,8 @@ function continue {
     read -p "Press any key to continue or CTRL+C to abort...";
 }
 
+
+
 #---------#
 #Initial Update/Upgrade
 
@@ -49,6 +51,8 @@ ask "Would you like to update your version of Linux?" && sudo apt-get update -y 
 #Will hopefully install python3, which I will try and use moving forward.
 #https://packages.ubuntu.com/bionic/software-properties-common
 check "Install software-properties-common" && sudo apt-get install software-properties-common -y 
+
+
 
 #---------#
 #Docker
@@ -82,4 +86,7 @@ ask "The script will now install docker-ce docker-ce-cli and containerd. Continu
 echo "The script has finished installing the latest version of Docker"
 continue
 
+
+
 #---------#
+#Installing Falco
