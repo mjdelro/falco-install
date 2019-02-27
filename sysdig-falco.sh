@@ -1,6 +1,6 @@
 #!/bin/bash
 #by mikejdelro (2019)
-
+#what is going on
 #---------#
 #Functions
 
