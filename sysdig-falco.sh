@@ -37,7 +37,7 @@
 #Will hopefully install python3, which I will try and use moving forward.
 #https://packages.ubuntu.com/bionic/software-properties-common
     ask "Install software-properties-common?" && sudo apt-get install software-properties-common -y 
-
+        clear
 
 
 #---------#
@@ -53,6 +53,7 @@
 
 #Install Requirements via Apt
     sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+        clear
 
 #Uninstall previous versions of Docker
     ask "The script will now try to uninstall previous versions of Docker previously installed on your system. Continue?" && sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -61,10 +62,7 @@
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 #Add Docker's repository
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
-#Update Apt with included Docker repository
-    sudo apt-get update
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && sudo apt-get update
 
 #Install the latest version of Docker CE and containerd
     ask "The script will now install docker-ce docker-ce-cli and containerd. Continue?" && sudo apt-get install docker-ce docker-ce-cli containerd.io -y
@@ -78,5 +76,7 @@ continue
 
 #---------#
 #Installing Falco
+    ask "The script will now install falcosecurity/falco" && docker pull falcosecurity/falco
 
-ask "The script will now install "
+
+
