@@ -76,7 +76,9 @@ continue
 
 #---------#
 #Installing Falco
-    ask "The script will now install falcosecurity/falco" && docker pull falcosecurity/falco
+    ask "Install Falco?" && docker pull falcosecurity/falco
 
+#Install event-generator
+    ask "Install Event Generator?" && docker pull sysdig/falco-event-generator
 
 
