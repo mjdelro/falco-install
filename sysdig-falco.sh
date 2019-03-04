@@ -5,7 +5,7 @@
 #Functions
 
 #Asks the user yes or no
-    ask() {
+    function ask {
         # call with a prompt string or use a default
         read -r -p "${1:-Are you sure? [y/N]} " response
         case "$response" in
@@ -52,8 +52,7 @@
     continue
 
 #Install Requirements via Apt
-    sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-        clear
+    screen -S bash -d -m bash -c "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y"
 
 #Uninstall previous versions of Docker
     ask "The script will now try to uninstall previous versions of Docker previously installed on your system. Continue?" && sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -76,9 +75,9 @@ continue
 
 #---------#
 #Installing Falco
-    ask "Install Falco?" && docker pull falcosecurity/falco
-
+    ask "Install Falco?" && sudo docker pull falcosecurity/falco
+    screen -S falco -d -m bash -c "docker run -i -t --name falco --privileged -v /var/run/docker.sock:/host/var/run/docker.sock -v /dev:/host/dev -v /proc:/host/proc:ro -v /boot:/host/boot:ro -v /lib/modules:/host/lib/modules:ro -v /usr:/host/usr:ro falcosecurity/falco"
 #Install event-generator
-    ask "Install Event Generator?" && docker pull sysdig/falco-event-generator
-
+    ask "Install Event Generator?" && sudo docker pull sysdig/falco-event-generator
+    screen -S eventgen -d -m bash -c "docker run -it --name falco-event-generator sysdig/falco-event-generator"
 
