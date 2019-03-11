@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  falcosecurity:
+    build: ./falco
+    volumes:
+      - /var/run/docker.sock:/host/var/run/docker.sock 
+      - /dev:/host/dev -v /proc:/host/proc:ro
+      - /boot:/host/boot:ro
+      - /lib/modules:/host/lib/modules:ro
+      - /usr:/host/usr:ro
+    ports:
+      - 4201:80
+      
