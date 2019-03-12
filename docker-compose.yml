@@ -1,7 +1,7 @@
-version: '23'
+version: '3.8'
 
 services:
-  falco-install:
+  falco:
     image: falcosecurity/falco
     stdin_open: true
     tty: true
@@ -13,4 +13,12 @@ services:
       - /proc:/host/proc:ro 
       - /boot:/host/boot:ro 
       - /lib/modules:/host/lib/modules:ro 
-      - /usr:/host/usr:ro 
+      - /usr:/host/usr:ro
+    restart: always
+
+  falco-event-gen:
+    image: sysdig/falco-event-generator
+    stdin_open: true
+    tty: true
+    container_name: falco-event-gen
+    restart: always
