@@ -1,4 +1,18 @@
-# Falco install
+<p align="center">
+  <img src="assets/icon.svg" alt="Falco Install Icon" width="104" height="104" />
+</p>
+
+<h1 align="center">Falco Install</h1>
+
+<p align="center">Archived 2019 experiment for running Sysdig Falco and Event Generator in Docker on Ubuntu.</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-archived%20experiment-64748b?style=flat-square" alt="" />
+  <img src="https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white" alt="" />
+  <img src="https://img.shields.io/github/license/mjdelro/falco-install?style=flat-square&color=64748b" alt="" />
+</p>
+
+---
 
 An archived 2019 experiment for running Falco and Falco Event Generator in Docker on Ubuntu.
 
